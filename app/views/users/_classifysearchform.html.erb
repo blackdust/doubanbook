@@ -1,0 +1,12 @@
+<%= form_for(@classifybook) do |f| %> 
+  <%= f.radio_button 'condition', '小说'%>
+  <%= f.label :小说 %>
+  <%= f.radio_button 'condition', '童话'%>
+  <%= f.label :童话 %>
+  <%= f.radio_button 'condition', '散文'%>
+  <%= f.label :散文 %>
+  <%=hidden_field_tag 'classifybook[user_id]', @a.id.to_s%>  
+  <div class="actions">
+      <%= f.submit "分类搜索", class: "btn btn-primary" %>
+  </div>
+<% end %>

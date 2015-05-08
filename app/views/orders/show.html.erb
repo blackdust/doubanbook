@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h4>你的订单已经提交成功！</h4>
+<p>
+  <strong>订购的商品：:</strong>
+  <% @b.each do |x| %>
+      <tr>
+        <td>书名：《<%= x['title'] %>》</td>
+        <td>数量：<%= x['quantity'] %></td>
+  <%end%>
+</p>
+
+<p>
+  <strong>总价:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+  <strong>电话号码:</strong>
+  <%= @order.phonenumber %>
+</p>
+
+<p>
+  <strong>地址:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>用户id:</strong>
+  <%= @order.user_id %>
+</p>
+
+<%= link_to '继续购物', current_user %>

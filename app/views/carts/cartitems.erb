@@ -1,0 +1,29 @@
+<h1>用户<%=session[:user_id]%>号的购物车：</h1>
+<tbody>
+    
+    
+    <% @items.each do |a| %>
+      <tr>
+       书名：<br>《<%= a.title %>》
+       价格:<%= a.price %> x<%= a.quantity %>本= <%= a.price*a.quantity %>元
+       
+       </br>
+      </tr>
+
+    <% end %>
+    <br>----------------------------------------</br>
+    顾客你采购了<%=@classcount%>种书。
+    总价=<%=@value%>元
+    <%if @value!=0%>
+      <%= button_to "清空购物车", checkout_path %>
+      <%=button_to'添加订单',makeorder_path(:information=> @information,:total_price=>@value,:user_id=>session[:user_id])%>
+      <%else%>
+      <h3>购物车没有商品！</h3>
+      <%= link_to '继续购物', current_user %>
+    <%end%>
+
+    <!--%=button_to'添加订单',new_order_path('order[information]'=> @information,'order[total_price]'=>@value,'order[user_id]'=>session[:user_id])%-->
+    <!--%=@items.sum(:price)%-->
+    <!--%=button_to '清空购物车',@items,：method =>:delete%-->
+
+  </tbody> 

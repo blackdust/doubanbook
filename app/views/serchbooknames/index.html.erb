@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Serchbooknames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>user_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @serchbooknames.each do |serchbookname| %>
+      <tr>
+        <td><%= serchbookname.word %></td>
+        <td><%= serchbookname.user_id %></td>
+        <td><%= link_to 'Show', serchbookname %></td>
+        <td><%= link_to 'Edit', edit_serchbookname_path(serchbookname) %></td>
+        <td><%= link_to 'Destroy', serchbookname, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Serchbookname', new_serchbookname_path %>

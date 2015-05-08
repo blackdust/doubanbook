@@ -1,0 +1,39 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  用户编号：<%= @user_id %>号
+  <h4>你的书单：</h4>
+  <% @information.each do |a| %>
+      
+    <br>书名：《<%= a['title'] %>》
+    数量：<%= a['quantity'] %>本</br>
+  <% end %>
+  <br>-------------------------------</br>
+  总价：<%= @total_price %>元
+
+  <div class="field">
+    <%= f.label "电话" %><br>
+    <%= f.number_field :phonenumber %>
+  </div>
+  <div class="field">
+    <%= f.label "地址" %><br>
+    <%= f.text_field :address %>
+  </div>
+  <%=hidden_field_tag 'order[information]', @information1%>
+  <%=hidden_field_tag 'order[total_price]',@total_price %> 
+  <%=hidden_field_tag 'order[user_id]',@user_id %> 
+  <div class="actions">
+    <%= f.submit "提交订单" %>
+  </div>
+<% end %>
+
+ 

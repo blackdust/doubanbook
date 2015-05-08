@@ -1,0 +1,12 @@
+<%= form_for(@serchbookname) do |f| %> 
+  <div class="field">
+    <%= f.label :关键字 %>
+    <%= f.text_field :word%>
+  </div>
+    <!--%=f.hidden_field 'user_id', :value => @a.id.to_s%-->  
+    <%=hidden_field_tag 'serchbookname[user_id]', @a.id.to_s%>  
+  <div class="actions">
+    <%= f.submit "搜索", class: "btn btn-primary" %>
+  </div>
+<% end %>
+

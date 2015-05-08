@@ -1,0 +1,18 @@
+<% provide(:title, @user.name) %>
+<div class="x">
+      <h3 style='color:#A7BB4D;font-size:2em'> 顾客<%= @user.name %>你好， 你的id=<%= @user.id %> 这里是查询页面.</h3>
+</div>
+ 
+<%= link_to '编辑个人资料', edit_user_path(@user) %> 
+<%= link_to '查询我的订单', checkorder_path%> 
+
+<body>
+  <h1>关键字查询：</h1>
+  <%= render 'serchform' %>
+  <h1>分类查询：</h1>
+  <%= render 'classifysearchform' %>
+</body>
+
+
+
+

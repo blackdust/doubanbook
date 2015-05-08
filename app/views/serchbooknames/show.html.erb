@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>关键字搜索:</strong>
+  <%= @serchbookname.word %>
+</p>
+
+<div id='side'>
+<!--%=render @cart%-->
+</div>
+<div id='pagebutton'>
+<%=button_to '1-50', makepages2_path(:page=>0,:id=>@serchbookname.id)%>
+<%=button_to '51-100', makepages2_path(:page=>50,:id=>@serchbookname.id)%>
+<%=button_to '101-150', makepages2_path(:page=>100,:id=>@serchbookname.id)%>
+<%=button_to '151-200', makepages2_path(:page=>150,:id=>@serchbookname.id)%>
+</div>
+
+
+
+<p>
+  <strong>UserID:</strong>
+  <%= @serchbookname.user_id %>
+</p>
+<% @list.each do |p| %>
+ <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
+  <p>书名：<%= p['title']%>
+  </p>
+  <p>价格：<%= p['price']%>
+  </p>
+  <p>作者：<%=p['author'][0]%>
+  </p>
+  <p>链接图片：<%= p['image']%>
+  </p>
+  <p>封面：<%=image_tag( p['image'], size: "200")%>
+  </p>
+<%=button_to'购买',addcart_path('cart[title]'=>p['title'],'cart[price]'=>p['price'],'cart[quantity]'=>1,'cart[user_id]'=>@serchbookname.user_id)%>
+<% end %>
+<h2>分页条数=<%=@list.count%>条
+ </h2> 

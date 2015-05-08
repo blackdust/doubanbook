@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h1>书名
+  <%= @cart.title %>
+  数量
+<%= @cart.quantity %>
+价格
+<%= @cart.price %>
+用户id=
+<%= @cart.user_id %></h1>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

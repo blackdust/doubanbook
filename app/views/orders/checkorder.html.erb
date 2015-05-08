@@ -1,0 +1,14 @@
+<h1>你曾经的订单：</h1>
+<% @a.each do |a| %>
+      
+ <br>图书信息：
+     <%@b=JSON.parse(a.information)%>
+      <% @b.each do |b| %>
+       书名：<%= b['title'] %>
+       数量：<%= b['quantity'] %>
+      <%end%> 
+
+ 电话号码：<%= a.phonenumber %>
+ 地址：<%= a.address%></br>
+       
+<%end%>
