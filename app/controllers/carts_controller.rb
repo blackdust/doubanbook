@@ -75,6 +75,7 @@ class CartsController < ApplicationController
     @value = @items.map {|c|
       c.quantity * c.price
     }.sum
+    
     @order_information = Array.new
     #把关系数据库书名转换成数组
     @items.each{|x|

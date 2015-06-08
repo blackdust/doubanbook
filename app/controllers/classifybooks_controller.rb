@@ -20,7 +20,7 @@ class ClassifybooksController < ApplicationController
    
    page = params[:page]||0
    pages=page.to_s
-   string='https://api.douban.com/v2/book/search?tag='+string1+'&count=50&start='+pages+'&fields=image,title,author,price' 
+   string='https://api.douban.com/v2/book/search?tag='+string1+'&count=50&start='+pages+'&fields=image,title,author,price,summary' 
 
     uri = URI.escape string  
     html_response = nil  

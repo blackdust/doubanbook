@@ -19,17 +19,31 @@
 <%=button_to '151-200', makepages_path(:page=>150,:id=>@classifybook.id)%>
 
 <% @list.each do |p| %>
- <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
-  <p>书名：<%= p['title']%>
-  </p>
-  <p>价格：<%= p['price']%>
-  </p>
-  <p>作者：<%=p['author'][0]%>
-  </p>
-  <p>链接图片：<%= p['image']%>
-  </p>
-  <p>封面：<%=image_tag( p['image'], size: "200")%>
-  </p>
+ <hr/>
+     <span><strong>书名：</strong><%= p['title']%>
+     &nbsp;&nbsp;<strong>价格：</strong><%= p['price']%>
+     &nbsp;&nbsp;<strong>作者：</strong><%=p['author'][0]%>
+     </span>
+
+  <div class="line">
+    <div class="logo">
+    <span>封面：</span>
+    <%=image_tag(p['image'],size:"200")%>
+    </div>
+    <div class="des">
+     <p>简介：<%if p['summary'].empty?%>
+              <p>没有简介</p>
+              <%else%>    
+              <%= p['summary'][0..600]%>
+              <%end%>
+    </p>
+
+    </div>
+    <div class="clear"></div>
+  </div>   
+
+
+
 <%=button_to'购买',addcart_path('cart[title]'=>p['title'],'cart[price]'=>p['price'],'cart[quantity]'=>1,'cart[user_id]'=>@classifybook.user_id)%>
 <% end %>
 <h2>分页条数=<%=@list.count%>条
